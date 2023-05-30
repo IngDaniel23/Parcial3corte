@@ -53,7 +53,19 @@ public class userDAO {
         
         return username;
     }
+    public boolean verificarCredenciales(String username, String password) {
+    String sql = "SELECT username, password FROM poo.users WHERE username = '" + username + "' AND password = '" + password + "'";
     
+    try {
+        ResultSet result = BasedeDatos.ejecutarSQL(sql);
+        return result.next(); // Devuelve true si hay al menos un registro que coincida con los datos proporcionados
+    } catch (Exception e) {
+        System.out.println(e.toString());
+        System.out.println("Error al verificar las credenciales");
+        return false;
+    }
+}
+
     
     public String[][] getSeleccionesMatriz() {
         

@@ -23,12 +23,14 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 import proyectomundial.DAO.SeleccionDAO;
+import proyectomundial.DAO.userDAO;
 import proyectomundial.model.Seleccion;
 
 public class GUIManual extends JFrame {
 
     SeleccionDAO seleccionDAO = new SeleccionDAO();
-    
+    userDAO dao = new userDAO();
+
     
     // Matrix que permite almancenar la información de las selecciones futbol cargadas
     public String[][] selecciones = null;
@@ -275,9 +277,18 @@ public class GUIManual extends JFrame {
         private void accionSecion() {
             String usuario = JOptionPane.showInputDialog("Ingrese su nombre de usuario:");
         String contraseña = JOptionPane.showInputDialog("Ingrese su contraseña:");
+boolean credencialesValidas = dao.verificarCredenciales(usuario, contraseña);
 
+if (credencialesValidas) {
+                JOptionPane.showMessageDialog(null, " hay sesión iniciada");
+haySesion=true;
+} else {
+     JOptionPane.showMessageDialog(null, " no son validos");
+}
            
         }
+        
+        
     private void accionSelecciones() {
         
         if(!haySesion) {
@@ -316,6 +327,7 @@ public class GUIManual extends JFrame {
         }
     }
     
+   
     /**
      * Función que se encarga de ajustar los elementos gráficos que componente la opción de navegación de RESULTADOS
      * Define estilos, etiquetas, iconos que decoran la opción del Menú. 
