@@ -51,6 +51,9 @@ public class GUIManual extends JFrame {
     private JPanel jPanelMenuSelecciones;
     private JLabel btnSelecciones;
     
+    private JPanel JPanelInicioSecion;
+    private JLabel btnIncioSecion;
+    
     private JPanel jPanelMenuResultados;
     private JLabel btnResultados;
     
@@ -103,6 +106,9 @@ public class GUIManual extends JFrame {
         jPanelMenuSelecciones = new JPanel();
         btnSelecciones = new JLabel();
         
+        JPanelInicioSecion = new JPanel();
+        btnIncioSecion = new JLabel();
+        
         jPanelMenuResultados = new JPanel();
         btnResultados = new JLabel();
         
@@ -134,7 +140,7 @@ public class GUIManual extends JFrame {
         pintarPanelIzquierdo();
         
         
-        
+        pintarInicioDeSecion();
         // Inicializa los componentes del panel derecho de los contenidos
         jPanelRight = new JPanel();
         jPanelLabelTop = new JPanel();
@@ -236,12 +242,42 @@ public class GUIManual extends JFrame {
         });
     }
     
+    //JButton iniciarSecion = new JButton();
+      //  buscar.setText("Incio de Secion");
+       // panelBotones.add(iniciarSecion);
+    
+        private void pintarInicioDeSecion() {
+
+        btnIncioSecion.setText("Inicio de secion");
+        btnIncioSecion.setForeground(new java.awt.Color(255, 255, 255));
+        
+        JLabel vacioIncioSecion = new JLabel();
+        JPanelInicioSecion.setBackground(new java.awt.Color(17, 41, 63));
+        JPanelInicioSecion.setPreferredSize((new java.awt.Dimension(220, 35)));
+        JPanelInicioSecion.setLayout(new BorderLayout(15, 0));
+        JPanelInicioSecion.add(vacioIncioSecion, BorderLayout.WEST);
+        JPanelInicioSecion.add(btnIncioSecion, BorderLayout.CENTER);
+        jPanelMenu.add(JPanelInicioSecion);
+        
+        btnIncioSecion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                System.out.println("Inicio de secion");
+                accionSecion();
+            }
+        });
+    }
     /**
      * Función que se ejecuta cuando el usuario hace click sobre la opción de navegación Selecciones
      * Permite ver la lista de selecciones que se encuentran cargadas en la aplicación. 
      * Si la lista de selecciones en vacía, muestra un botón que permite cargar un archivo CSV
      * con la información de las selelecciones
      */
+        private void accionSecion() {
+            String usuario = JOptionPane.showInputDialog("Ingrese su nombre de usuario:");
+        String contraseña = JOptionPane.showInputDialog("Ingrese su contraseña:");
+
+           
+        }
     private void accionSelecciones() {
         
         if(!haySesion) {
@@ -570,6 +606,7 @@ public class GUIManual extends JFrame {
         JButton buscar = new JButton();
         buscar.setText("Buscar");
         panelBotones.add(buscar);
+        
         
         JButton limpiar = new JButton();
         limpiar.setText("Ver Todos");
