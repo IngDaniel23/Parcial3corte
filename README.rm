@@ -1,3 +1,7 @@
 
 Nombre Estudiante: Daniel Facundo Miranda Moreno
 Correo Electrónico del estudiante: d_miranda2@unisimon.edu.co
+
+Observaciones
+Completó la lógic de consualtar en BD, crear la solución otientada a Objetos. 
+No era necesario aplicar un while para consultar si el usuario estaba registrado en bd y la contraseña tenía coincidencia.
